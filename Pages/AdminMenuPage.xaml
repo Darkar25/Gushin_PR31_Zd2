@@ -1,0 +1,28 @@
+﻿<Page x:Class="MaraphonSkills.Pages.AdminMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminMenuPage">
+
+    <Grid>
+        <Label Content="Меню администратора" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <UniformGrid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="UsersButton" MouseLeftButtonDown="UsersButton_MouseLeftButtonDown">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Пользователи"/>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="VolunteersButton" MouseLeftButtonDown="VolunteersButton_MouseLeftButtonDown">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Волонтёры"/>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="CharityButton">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Благотворительные организации"/>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="InventoryButton">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Инвентарь"/>
+            </Border>
+        </UniformGrid>
+    </Grid>
+</Page>

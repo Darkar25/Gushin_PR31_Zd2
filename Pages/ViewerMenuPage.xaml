@@ -1,0 +1,53 @@
+﻿<Page x:Class="MaraphonSkills.Pages.ViewerMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewerMenuPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Меню зрителя"/>
+            <StackPanel Orientation="Horizontal">
+                <Border Style="{StaticResource BigButtonBorder}" x:Name="AddCommentButton" MouseLeftButtonDown="AddCommentButton_MouseLeftButtonDown">
+                    <TextBlock Text="Оставить отзыв" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <Border Style="{StaticResource BigButtonBorder}" x:Name="CommentStatButton" MouseLeftButtonDown="CommentStatButton_MouseLeftButtonDown">
+                    <TextBlock Text="Статистика отзывов" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="PageCountTextBlock" Margin="10" HorizontalAlignment="Center" Text="{Binding PageCount}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="PageDownButton" Content="&lt;" Click="PageDownButton_Click"/>
+                    <ListView x:Name="PictureListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding RunnerPicture}" Height="100" Width="100">
+                                    <Image.ToolTip>
+                                        <ToolTip>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding User.FirstName}"/>
+                                                <TextBlock Text="{Binding User.LastName}"/>
+                                                <TextBlock Text="{Binding Age}"/>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Image.ToolTip>
+                                </Image>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                    <Button x:Name="PageUpButton" Content="&gt;" Click="PageUpButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

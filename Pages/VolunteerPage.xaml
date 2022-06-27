@@ -1,0 +1,48 @@
+﻿<Page x:Class="MaraphonSkills.Pages.VolunteerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VolunteerPage" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}">
+
+    <DockPanel>
+        <Label Content="Управление волонтерами" DockPanel.Dock="Top"/>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Сортировка и фильтрация" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <Label Content="Сортировать по:" Grid.Row="1"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" x:Name="filter">
+                <ComboBoxItem DataContext="Email">Почте</ComboBoxItem>
+                <ComboBoxItem DataContext="FirstName">Имени</ComboBoxItem>
+                <ComboBoxItem DataContext="LastName">Фамилии</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Загрузка" Grid.Column="2" HorizontalAlignment="Center"/>
+            <Button Content="Загрузка волонтеров" Grid.Column="2" Grid.Row="1" Click="Button_Click_1"/>
+            <Button Content="Обновить" Click="Button_Click" Grid.Column="1" Grid.Row="2"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <Run Text="Всего волонтеров: "/>
+            <Run Text="{Binding Volunteers.Count, Mode=OneWay}"/>
+        </TextBlock>
+        <DataGrid ItemsSource="{Binding Volunteers}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country.CountryName}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Page>

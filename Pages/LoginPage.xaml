@@ -1,0 +1,84 @@
+﻿<Page x:Class="MaraphonSkills.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+    <Page.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <Label Content="Форма авторизации"/>
+            <TextBlock Text="Пожалуйста авторизируйтесь в системе, используя ваш адрес электронной почты и пароль." TextWrapping="Wrap"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email:" Style="{StaticResource DescriptionTextBlock}"/>
+                <TextBox x:Name="EmailTextBox" Width="150" TabIndex="0" Height="30">
+                    
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
+                                <VisualBrush.Visual>
+                                    <Label Foreground="Gray" ClipToBounds="True">
+                                        <Label.Style>
+                                            <Style TargetType="Label">
+                                                <Setter Property="Content" Value="Введите Email"/>
+                                            </Style>
+                                        </Label.Style>
+                                    </Label>
+                                </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+
+
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Password:" Style="{StaticResource DescriptionTextBlock}"/>
+                <PasswordBox x:Name="PasswordTextBox" Width="150" TabIndex="1" IsTabStop="True" Height="30"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Капча:" HorizontalAlignment="Center"/>
+                <Border BorderBrush="Black" BorderThickness="2" Width="auto">
+                    <TextBlock x:Name="CapchaTextBlock" FontSize="20" Width="auto" HorizontalAlignment="Center"/>
+                </Border>
+                <TextBox x:Name="CapchaTextBox" Width="150" HorizontalAlignment="Center" Margin="10" Height="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Style="{StaticResource SmallButtonBorder}" x:Name="LoginButton" MouseLeftButtonDown="LoginButton_MouseLeftButtonDown">
+                    <TextBlock Text="Login" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Style="{StaticResource SmallButtonBorder}" x:Name="CancelButton" MouseLeftButtonDown="CancelButton_MouseLeftButtonDown">
+                    <TextBlock Text="Cancel" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <TextBlock x:Name="TimerTextBox" Visibility="Hidden" HorizontalAlignment="Center"/>
+            
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Button x:Name="DebugRunnerButton" Content="Перейти как участник" Click="DebugRunnerButton_Click"/>
+        <Button x:Name="DebugCoordinatorButton" Content="Перейти как Координатор" Click="DebugCoordinatorButton_Click"/>
+        <Button x:Name="DebugViewerButton" Content="Перейти как зритель" Click="DebugViewerButton_Click"/>
+        <Button x:Name="DebugAdminButton" Content="Перейти как администратор" Click="DebugAdminButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

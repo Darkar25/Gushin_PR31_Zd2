@@ -1,0 +1,26 @@
+﻿<Page x:Class="MaraphonSkills.Pages.CoordinatorMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CoordinatorMenuPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Меню координатора" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="RunnersButton" MouseLeftButtonDown="RunnersButton_MouseLeftButtonDown">
+                <TextBlock Text="Бегуны" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="CharityButton" MouseLeftButtonDown="CharityButton_MouseLeftButtonDown">
+                <TextBlock Text="Спонсоры" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </WrapPanel>
+    </Grid>
+</Page>

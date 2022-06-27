@@ -1,0 +1,72 @@
+﻿<Page x:Class="MaraphonSkills.Pages.AddReviewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddReviewPage">
+    <Page.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Марафон"/>
+                    <ComboBox x:Name="MarathonComboBox" Width="150" SelectedValue="{Binding MarathonId}"/>
+                </StackPanel>
+                <Label Content="Оцените марафон"/>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="ReviewMarkGroup" Content="1" x:Name="Mark1RadioButton" Margin="5"/>
+                    <RadioButton GroupName="ReviewMarkGroup" Content="2" x:Name="Mark2RadioButton" Margin="5"/>
+                    <RadioButton GroupName="ReviewMarkGroup" Content="3" x:Name="Mark3RadioButton" Margin="5"/>
+                    <RadioButton GroupName="ReviewMarkGroup" Content="4" x:Name="Mark4RadioButton" Margin="5"/>
+                    <RadioButton GroupName="ReviewMarkGroup" Content="5" x:Name="Mark5RadioButton" Margin="5" IsChecked="True"/>
+                </StackPanel>
+                <Border Style="{StaticResource SmallButtonBorder}" x:Name="SendButton" Margin="10" MouseLeftButtonDown="SendButton_MouseLeftButtonDown">
+                    <TextBlock Text="Отправить" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <TextBlock x:Name="ErrorTextBlock"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Комментарий"/>
+                <TextBox TextWrapping="Wrap" Height="200" Width="200" x:Name="CommentTextBox">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Foreground="Gray" ClipToBounds="True">
+                                            <Label.Style>
+                                                <Style TargetType="Label">
+                                                    <Setter Property="Content" Value="Комментарий..."/>
+                                                </Style>
+                                            </Label.Style>
+                                        </Label>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+
+
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Page>

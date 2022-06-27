@@ -1,0 +1,93 @@
+﻿<Page x:Class="MaraphonSkills.Pages.RunnerEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RunnerEditPage">
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="Width" Value="150"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Редактирование профиля бегуна" Grid.Row="0"/>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Email:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <TextBox x:Name="EmailTextBox" IsReadOnly="True" BorderThickness="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Имя:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <TextBox x:Name="FirstNameTextBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Фамилия:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <TextBox x:Name="LastNameTextBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Пол:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <ComboBox x:Name="GenderComboBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Дата рождения:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <DatePicker x:Name="DateOfBirthDatePicker"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Страна:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <ComboBox x:Name="CountryComboBox"/>
+                </StackPanel>
+                </StackPanel>
+            <StackPanel>
+                <Image x:Name="RunnerPicture" Width="70" Height="70" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Фото файл:"/>
+                    <TextBox x:Name="PhotoPathTextBox" Width="auto" IsReadOnly="True" BorderThickness="0"/>
+                    <Border Style="{StaticResource SmallButtonBorder}" Margin="0" Height="30" x:Name="FileButton" MouseLeftButtonDown="FileButton_MouseLeftButtonDown">
+                        <TextBlock Text="Просмотр..." />
+                    </Border>
+                </StackPanel>
+                <Label Content="Смена пароля"/>
+                <TextBlock Text="Оставте эти поля, незаполненными, если вы не хотите изменять пароль." TextWrapping="Wrap"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Пароль:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <PasswordBox x:Name="PasswordTextBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Повторите пароль:" Style="{StaticResource DescriptionTextBlock}"/>
+                    <PasswordBox x:Name="PasswordRepeatTextBox"/>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Style="{StaticResource SmallButtonBorder}" x:Name="SaveButton" MouseLeftButtonDown="SaveButton_MouseLeftButtonDown">
+                <TextBlock Text="Сохранить"/>
+            </Border>
+            <Border Style="{StaticResource SmallButtonBorder}" x:Name="CancelButton" MouseLeftButtonDown="CancelButton_MouseLeftButtonDown">
+                <TextBlock Text="Отмена"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

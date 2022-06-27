@@ -1,0 +1,46 @@
+﻿<Page x:Class="MaraphonSkills.Pages.StartingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Стартовая страница">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="{StaticResource MainColor}"/>
+        <StackPanel Background="{StaticResource MainColor}" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+            <Label Content="MARATHON SKILLS 2022" Style="{StaticResource MainLabel}"/>
+            <TextBlock Text="Москва, Россия" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="StartDateTextBlock" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <UniformGrid Grid.Row="1" VerticalAlignment="Top">
+            <Border Style="{StaticResource BigButtonBorder}" MouseLeftButtonDown="ButtonRunnerRegister_MouseLeftButtonDown" x:Name="ButtonRunnerRegister">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Я хочу стать бегуном</TextBlock>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" MouseLeftButtonDown="ButtonViewerRegister_MouseLeftButtonDown" x:Name="ButtonViewerRegister">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Я хочу стать зрителем</TextBlock>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" MouseLeftButtonDown="ButtonSponsorRegister_MouseLeftButtonDown" x:Name="ButtonSponsorRegister">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Я хочу стать спонсором бегуна</TextBlock>
+            </Border>
+            <Border Style="{StaticResource BigButtonBorder}" MouseLeftButtonDown="ButtonInfo_MouseLeftButtonDown" x:Name="ButtonInfo">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Я хочу узнать больше о событии</TextBlock>
+            </Border>
+            
+            </UniformGrid>
+
+        <Border Style="{StaticResource SmallButtonBorder}" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="LoginButton" MouseLeftButtonDown="LoginButton_MouseLeftButtonDown">
+            <TextBlock Text="Login"/>
+        </Border>        
+
+
+        <TextBlock x:Name="TimerTextBlock" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Grid>
+</Page>

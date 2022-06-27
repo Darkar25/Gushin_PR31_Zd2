@@ -1,0 +1,37 @@
+﻿<Page x:Class="MaraphonSkills.Pages.CharityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CharityPage">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Список благотворительных организаций"/>
+            <TextBlock Text="Это - список всех благотворительных учреждений, которые поддерживаются в Marathon Skills. Спасибо за помощь вы поддерживаете их, спонсируя бегунов!" TextWrapping="Wrap"/>
+            <ItemsControl x:Name="CharityItemsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding Logo}" Grid.RowSpan="2"/>
+                            <Label Content="{Binding CharityName}"  Grid.Column="1"/>
+                            <TextBlock Text="{Binding CharityDescription}" Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</Page>

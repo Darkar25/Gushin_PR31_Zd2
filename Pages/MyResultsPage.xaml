@@ -1,0 +1,33 @@
+﻿<Page x:Class="MaraphonSkills.Pages.MyResultsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MyResultsPage" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}">
+
+    <StackPanel HorizontalAlignment="Center">
+        <Label Content="Мои результаты" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Это - список всех ваших прошлых результатов гонки для Marathon Skills."/>
+        <Label Content="Общее место сравнивает всех бегунов."/>
+        <Label Content="Место по категории compares runners in the same gender and age categories."/>
+        <TextBlock>
+            <Run FontWeight="Bold">Пол:</Run>
+            <Run Text="{Binding run.Gender}"/>
+            <Run FontWeight="Bold"> Возрастная категория:</Run>
+            <Run Text="{Binding category}"/>
+        </TextBlock>
+        <DataGrid AutoGenerateColumns="False" Name="results">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Марафон" Binding="{Binding Marathon}"/>
+                <DataGridTextColumn Header="Дистанция" Binding="{Binding Distance}"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Общее место" Binding="{Binding GlobalPosition}"/>
+                <DataGridTextColumn Header="Место по категории" Binding="{Binding CategoryPosition}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Показать все результаты"/>
+    </StackPanel>
+</Page>

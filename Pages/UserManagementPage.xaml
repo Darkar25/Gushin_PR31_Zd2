@@ -1,0 +1,74 @@
+﻿<Page x:Class="MaraphonSkills.Pages.UserManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserManagementPage">
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Управление пользователями" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0"/>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+                <Border Style="{StaticResource SmallButtonBorder}"  HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="AddNewUserButton" MouseLeftButtonDown="AddNewUserButton_MouseLeftButtonDown">
+                    <TextBlock Text="+ Добавление нового" TextWrapping="Wrap"/>
+                </Border>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Фильтр по ролям:" Style="{StaticResource DescriptionTextBlock}"/>
+                        <ComboBox x:Name="RoleFilterComboBox" SelectedValue="{Binding RoleId}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Сортировать по:" Style="{StaticResource DescriptionTextBlock}"/>
+                        <ComboBox x:Name="SortComboBox"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Поиск:" Style="{StaticResource DescriptionTextBlock}"/>
+                        <TextBox x:Name="SearchTextBox"/>
+                    </StackPanel>
+                    <Border Style="{StaticResource SmallButtonBorder}" HorizontalAlignment="Center" x:Name="RefreshButton" MouseLeftButtonDown="RefreshButton_MouseLeftButtonDown">
+                        <TextBlock Text="Обновить"/>
+                    </Border>
+                </StackPanel>
+            </WrapPanel>
+        <TextBlock x:Name="UserCountTextBlock" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="2">
+            <DataGrid AutoGenerateColumns="False" x:Name="UsersDataGrid" IsReadOnly="True" ColumnWidth="*" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Email"  Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Роль"  Binding="{Binding Role.RoleName}"/>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource SmallButtonBorder}" x:Name="EditButton" MouseLeftButtonDown="EditButton_MouseLeftButtonDown">
+                                    <TextBlock Text="Edit"/>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>

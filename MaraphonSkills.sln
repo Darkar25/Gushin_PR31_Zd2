@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaraphonSkills", "MaraphonSkills.csproj", "{7E686A8E-8909-4A17-B13E-FCE1A1AB3D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarathonLibrary", "..\MarathonLibrary\MarathonLibrary.csproj", "{153FC9A9-C0D4-4BDF-A156-F938C48F9882}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E686A8E-8909-4A17-B13E-FCE1A1AB3D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E686A8E-8909-4A17-B13E-FCE1A1AB3D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E686A8E-8909-4A17-B13E-FCE1A1AB3D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E686A8E-8909-4A17-B13E-FCE1A1AB3D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{153FC9A9-C0D4-4BDF-A156-F938C48F9882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{153FC9A9-C0D4-4BDF-A156-F938C48F9882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{153FC9A9-C0D4-4BDF-A156-F938C48F9882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{153FC9A9-C0D4-4BDF-A156-F938C48F9882}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05092740-23D1-4BAF-B8ED-F6589E9F7602}
+	EndGlobalSection
+EndGlobal

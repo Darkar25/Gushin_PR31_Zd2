@@ -1,0 +1,84 @@
+﻿<Page x:Class="MaraphonSkills.Pages.PreviousRunsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PreviousRunsPage" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}">
+
+    <StackPanel>
+        <Label Content="Результаты предыдущих гонок"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Марафон"/>
+            <Label Content="Дистанция" Grid.Row="1"/>
+            <Label Content="Пол" Grid.Column="2"/>
+            <Label Content="Категория" Grid.Row="1" Grid.Column="2"/>
+            <ComboBox Grid.Column="1" Name="marathon" ItemsSource="{Binding marathons}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding YearHeld}"/>
+                            <Run Text="-"/>
+                            <Run Text="{Binding Country.CountryName}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Grid.Column="1" Grid.Row="1" Name="distance" ItemsSource="{Binding distants}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding EventTypeName}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Grid.Column="3" Name="gender">
+                <ComboBoxItem>Any</ComboBoxItem>
+                <ComboBoxItem>M</ComboBoxItem>
+                <ComboBoxItem>W</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Grid.Column="3" Grid.Row="1" Name="category">
+                <ComboBoxItem>&lt;18</ComboBoxItem>
+                <ComboBoxItem>18-29</ComboBoxItem>
+                <ComboBoxItem>&gt;29</ComboBoxItem>
+            </ComboBox>
+            <Button Content="Найти" Grid.Column="4" Grid.Row="1" Click="Button_Click"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>
+                <Run Text="Всего бегунов:"/>
+                <Run Text="{Binding Runners.Count, Mode=OneWay}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Всего бегунов финишировало:"/>
+                <Run Text="{Binding Finished, Mode=OneWay}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="среднее время:"/>
+                <Run Text="{Binding AvgTime, Mode=OneWay}"/>
+            </TextBlock>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Runners}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Место" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Имя бегуна" Binding="{Binding Runner.RunnerFIO}"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Runner.Country.CountryCode}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>
